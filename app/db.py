@@ -20,7 +20,7 @@ class PGDB:
 			user	 = self.user,
 			password = self.password
 		)
-		return conn # Optional
+		return self.conn # Optional
 
 	def query(self, qu, *params):
 		""" """

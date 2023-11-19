@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 from db import PGDB
 
-app = Flask(__name__)
+app = Flask(__name__) #static_folder='web/static'
 
 PUBLIC_DIR = f'{app.root_path}/../public'
 
