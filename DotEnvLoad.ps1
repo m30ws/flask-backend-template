@@ -1,4 +1,6 @@
-# Intended for PS v2.0
+# Adjusted for PS v2.0, based on https://stackoverflow.com/a/72001469
+# This code is shared under CC BY-SA like the original answer (https://creativecommons.org/licenses/by-sa/4.0/)
+
 param(
     [string]$Path,
     [switch]$Verbose,

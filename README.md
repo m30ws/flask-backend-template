@@ -29,4 +29,4 @@ Basic template to quickly create new flask applications.
         $ run.bat [debug|prod]
 
 ### Linux
-* Source *app/.env* file and start server using gunicorn or similar server (not included yet)
+* Source *app/.env* file and start server using gunicorn or similar server (not included in this repo yet)
