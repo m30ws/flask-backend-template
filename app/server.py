@@ -3,7 +3,7 @@ import os
 
 from main import app
 
-if __name__ == '__main__':	
+if __name__ == '__main__':
 
 	# Mount the application
 	cherrypy.tree.graft(app, "/")
