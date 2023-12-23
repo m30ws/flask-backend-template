@@ -8,8 +8,12 @@ param(
     [switch]$RemoveQuotes
 )
 
-# $variables = Select-String -Path $Path -Pattern '^\s*[^\s=#]+=[^\s]+$' -Raw
-$variables = Select-String -Path $Path -Pattern '^\s*[^\s=#]+=[^\s]+$'
+try {
+    # $variables = Select-String -Path $Path -Pattern '^\s*[^\s=#]+=[^\s]+$' -Raw
+    $variables = Select-String -Path $Path -Pattern '^\s*[^\s=#]+=[^\s]+$'
+} catch {
+    if ($Remove){} Else { Write-Output "Cannot open $Path; skipping... `n" }
+}
 
 foreach($var in $variables) {
     $var = $var.Line
