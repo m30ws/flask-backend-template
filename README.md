@@ -1,4 +1,3 @@
-
 # flask-backend-template
 
 Basic template to quickly create new flask applications.
@@ -24,9 +23,9 @@ Basic template to quickly create new flask applications.
 
 ### Windows
     
-* Simply execute *run.bat* (will execute *./run.ps1* which will load environment variables from *app/.env* and start server in specified mode:
+* Simply execute *run.bat* (will execute *./run.ps1* which will load environment variables from *./.env* and start server in specified mode:
 
-        $ run.bat [debug|prod]
+        $ run.bat [dev|prod]
 
 ### Linux
-* Source *app/.env* file and start server using gunicorn or similar server (not included in this repo yet)
+* Source *./.env* file and start server using gunicorn or similar server (not included in this repo yet)
