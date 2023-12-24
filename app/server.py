@@ -21,8 +21,8 @@ if __name__ == '__main__':
 
 	# SSL Support
 	# server.ssl_module            = 'builtin'
-	# server.ssl_certificate       = '../ssl/certificate.crt'
 	# server.ssl_private_key       = '../ssl/privatekey.key'
+	# server.ssl_certificate       = '../ssl/certificate.crt'
 	# server.ssl_certificate_chain = '../ssl/certificate_chain.pem'
 
 	# "Cannot use tools without cherrypy Application"
