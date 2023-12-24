@@ -16,10 +16,10 @@ CORS(app)
 # CORS(app, resource={ r"/*": {"origins": os.getenv("FRONTEND_URL")} })
 
 db = PGDB (
-	database = os.getenv("POSTGRES_DBNAME"),
-	host	 = os.getenv("POSTGRES_HOST"),
-	user	 = os.getenv("POSTGRES_USER"),
-	password = os.getenv("POSTGRES_PASS")
+	database = os.getenv("POSTGRES_DBNAME", ""),
+	host	 = os.getenv("POSTGRES_HOST", ""),
+	user	 = os.getenv("POSTGRES_USER", ""),
+	password = os.getenv("POSTGRES_PASS", "")
 )
 
 def cleanup(ss):

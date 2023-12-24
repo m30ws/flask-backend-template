@@ -24,14 +24,30 @@ class PGDB:
 
 	def query(self, qu, *params):
 		""" """
-		cur = self.conn.cursor()
-		if not qu.endswith(';'): qu += ';'
+		def query_(qu_, *params_):
+			cur = self.conn.cursor()
+			if not qu_.endswith(';'): qu_ += ';'
 
-		# print(f"{cur.mogrify(qu, params)}")
-		cur.execute(qu, params)
+			# print(f"{cur.mogrify(qu_, params_)}").replace(b'\t', b' ').replace(b'\n', b' ').strip()
+			cur.execute(qu_, params_)
+
+			try:
+				return cur.fetchall(), 0
+			except psycopg2.ProgrammingError:
+				# Ignore this error code if you know you've executed
+				# a query that returns nothing (fetchall() will fail here)
+				return None, 1
+
+			finally:
+				try:
+					self.conn.commit()
+				except Exception as ex:
+					# print(f"Warning :: error thrown on commit: {ex}")
+					pass
 
 		try:
-			return cur.fetchall(), 0
-
-		except psycopg2.ProgrammingError:
-			return None, 0
+			return query_(qu, *params)
+		except (psycopg2.OperationalError, psycopg2.InterfaceError):
+			# print(f"Restarting database connection...")
+			self.connect_to_db()
+			return query_(qu, *params)
